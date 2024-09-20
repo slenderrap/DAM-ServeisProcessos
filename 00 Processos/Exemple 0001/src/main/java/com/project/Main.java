@@ -7,7 +7,6 @@ import java.util.concurrent.Executors;
 
 public class Main {
     public static void main(String[] args) {
-
 		// Crear un executor amb un pool de 3 fils
         ExecutorService executor = Executors.newFixedThreadPool(3);
 
