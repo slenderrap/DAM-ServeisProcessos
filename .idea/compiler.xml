@@ -12,6 +12,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="exercici0" target="21" />
       <module name="untitled" target="1.5" />
     </bytecodeTargetLevel>
   </component>
