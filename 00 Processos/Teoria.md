@@ -124,11 +124,22 @@ Runnable task = () -> {
 - **Callable**: però pot retornar un resultat (V) i llençar excepcions.
 
 ```java
-Callable<Integer> task = () -> {
-    return 123;
-};
+import java.util.concurrent.Callable;
+
+public class Callable implements Callable<Integer>{
+    @Override
+    public Integer call() throws Exception {
+        int resultat = 42; 
+        return resultat;
+    }
+}
 ```
 
+```java
+Callable myCallable = new Callable();
+Integer result = myCallable.call();
+System.out.println(result);
+```
 ### Relació entre Executors i Tasks
 
 - **Executors**: Són responsables de gestionar els fils i d'assignar Tasks per a la seva execució. S'encarreguen de crear, gestionar i finalitzar els fils.
