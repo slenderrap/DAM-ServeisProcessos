@@ -15,14 +15,31 @@ public class Main {
     es.submit(tasca1);
     es.submit(tasca2);
     es.submit(tasca3);
-    es.shutdown();
+        try {
+            cb.await();
+        } catch (InterruptedException | BrokenBarrierException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+
     int num1 = tasca1.getNumAleatori();
-    int num2 = tasca1.getNumAleatori();
-    int num3 = tasca1.getNumAleatori();
+    int num2 = tasca2.getNumAleatori();
+    int num3 = tasca3.getNumAleatori();
+
+
 
 
     int numFinal = num1 + num2 + num3;
-    System.out.println("La nota final es: "+numFinal/3);
+    double mitja = Math.round(((double) numFinal /3)*100.0)/100.0;
+
+
+    System.out.println("La nota final es: "+mitja);
+    es.shutdown();
+    if (es.isShutdown()){
+        System.exit(0);
+    }
 
 
     }
