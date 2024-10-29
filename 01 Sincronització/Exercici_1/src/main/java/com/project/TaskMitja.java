@@ -14,14 +14,6 @@ public class TaskMitja implements  Runnable{
         this.llista = llista;
     }
 
-    public int getSuma() {
-        return suma;
-    }
-
-    public void setSuma(int suma) {
-        this.suma = suma;
-    }
-
     public float getMitja() {
         return mitja;
     }
@@ -37,14 +29,16 @@ public class TaskMitja implements  Runnable{
     @Override
     public void run() {
         System.out.println("inici mitja");
-        float mitjana = 0;
+        mitja = 0;
         try {
-            cb.await();
             Thread.sleep(5000);
-            mitjana = (float) suma /getLlista().length;
-            setMitja(Math.round(mitjana));
+            for (int i = 0; i < llista.length; i++) {
+                suma +=llista[i];
+            }
+            mitja =  (float) Math.round((float) (100 * suma) / llista.length) /100;
+            setMitja(mitja);
             cb.await();
-            cb.await();
+            System.out.println("La mitja es: "+ mitja);
 
         } catch (InterruptedException | BrokenBarrierException e) {
             throw new RuntimeException(e);

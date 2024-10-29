@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello world!");
+        System.out.println("Inici del programa");
         int[] llistaNums = new int[10];
         for (int i = 0; i < llistaNums.length; i++) {
             llistaNums[i] = (int)(Math.random()*100)+1;
@@ -22,32 +22,12 @@ public class Main {
         TaskMitja mitja = new TaskMitja(cb,llistaNums);
         TaskDesvEstandard dEstandard = new TaskDesvEstandard(cb,llistaNums);
 
-        es.submit(suma);
-        es.submit(mitja);
-        es.submit(dEstandard);
+        es.execute(suma);
+        es.execute(mitja);
+        es.execute(dEstandard);
 
-        try{
-            cb.await();
-            cb.await();
-            cb.await();
-        } catch (BrokenBarrierException | InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        int sumatori = suma.getSuma();
-        mitja.setSuma(sumatori);
-        float mitjana = mitja.getMitja();
-        dEstandard.setSuma(sumatori);
-        dEstandard.setMitja(mitjana);
-        double desvEstandar = dEstandard.getDesviacioEstandard();
-
-        System.out.println(sumatori);
-        System.out.println("aqui s "+suma.getSuma());
-        System.out.println(mitjana);
-        System.out.println("aqui m "+mitja.getMitja());
-        System.out.println(desvEstandar);
-        System.out.println("aqui e "+dEstandard.getDesviacioEstandard());
         es.shutdown();
-
+        System.out.println("Fi del programa");
 
 
 

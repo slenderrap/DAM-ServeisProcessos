@@ -39,13 +39,9 @@ public class TaskSuma implements Runnable {
                 sumatori += getNumbers()[i];
             }
             setSuma(sumatori);
-            System.out.println("Suma proces1 "+getSuma());
             cb.await();
-            System.out.println("Suma proces2 "+getSuma());
-            cb.await();
-            System.out.println("Suma proces3 "+getSuma());
-            cb.await();
-            System.out.println("Suma proces4 "+getSuma());
+            System.out.println("Suma: "+getSuma());
+
 
 
         } catch (InterruptedException | BrokenBarrierException e) {
