@@ -3,7 +3,7 @@ package com.project;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-class Main {
+public class Main {
 	public static void main (String ... args){
 
 		//instanciem l'executor amb 2 fils

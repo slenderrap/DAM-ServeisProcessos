@@ -16,6 +16,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/01 Sincronització/Exercici_1/pom.xml" />
         <option value="$PROJECT_DIR$/01 Sincronització/exercici0/pom.xml" />
       </set>
     </option>
